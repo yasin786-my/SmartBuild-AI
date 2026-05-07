@@ -1,0 +1,129 @@
+# ========================================
+# SmartBuild AI - Root .gitignore
+# ========================================
+
+# Dependencies
+**/node_modules/
+**/venv/
+**/.venv/
+**/env/
+**/.env
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Diagnostic reports[](https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Build outputs
+**/dist
+**/build
+**/out
+
+# Vite
+frontend/.vite/
+
+# React / Vite specific
+frontend/tsconfig.tsbuildinfo
+
+# Python
+ml-service/__pycache__/
+ml-service/*.pyc
+ml-service/*.pyo
+ml-service/*.pyd
+ml-service/.Python
+ml-service/pip-log.txt
+ml-service/pip-delete-this-directory.txt
+ml-service/.cache/
+ml-service/*.egg-info/
+ml-service/.pytest_cache/
+ml-service/.mypy_cache/
+ml-service/.ruff_cache/
+
+# MongoDB
+*.mongo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE / Editor files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Temporary folders
+tmp/
+temp/
+
+# PDF / Export artifacts (if any)
+*.pdf
+*.docx
+
+# Optional: Large component database or cached data
+ml-service/models/components.json
+ml-service/models/*.db
+
+# ========================================
+# Specific to each folder
+# ========================================
+
+# Frontend
+frontend/.eslintcache
+frontend/.stylelintcache
+
+# Backend
+backend/.pm2/
+backend/logs/
+
+# ML Service
+ml-service/models/*.joblib
+ml-service/models/*.pkl
+ml-service/models/*.h5
+ml-service/models/*.onnx
+
+# Don't ignore these important files
+!**/README.md
+!.gitignore
+!.env.example

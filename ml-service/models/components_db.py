@@ -1,0 +1,368 @@
+"""
+components_db.py — Mock PC component database.
+Each component has: name, brand, model, price_inr, category, tier_compatibility, specs.
+Tiers: gaming, workstation, content_creation, office
+"""
+
+# ─── Mock Component Database ──────────────────────────────────────────────────
+# Prices are in INR (Indian Rupees). The Flask service converts on-the-fly.
+
+COMPONENTS_DB = {
+    "cpu": [
+        {
+            "id": "cpu-001",
+            "name": "Intel Core i3-12100F",
+            "brand": "Intel",
+            "category": "cpu",
+            "price_inr": 8500,
+            "tiers": ["office"],
+            "specs": {"cores": 4, "threads": 8, "base_clock": "3.3 GHz", "tdp": "58W"},
+        },
+        {
+            "id": "cpu-002",
+            "name": "Intel Core i5-13400F",
+            "brand": "Intel",
+            "category": "cpu",
+            "price_inr": 15500,
+            "tiers": ["office", "gaming", "content_creation"],
+            "specs": {"cores": 10, "threads": 16, "base_clock": "2.5 GHz", "tdp": "65W"},
+        },
+        {
+            "id": "cpu-003",
+            "name": "AMD Ryzen 5 7600X",
+            "brand": "AMD",
+            "category": "cpu",
+            "price_inr": 18500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"cores": 6, "threads": 12, "base_clock": "4.7 GHz", "tdp": "105W"},
+        },
+        {
+            "id": "cpu-004",
+            "name": "AMD Ryzen 7 7800X3D",
+            "brand": "AMD",
+            "category": "cpu",
+            "price_inr": 35000,
+            "tiers": ["gaming", "content_creation", "workstation"],
+            "specs": {"cores": 8, "threads": 16, "base_clock": "4.2 GHz", "tdp": "120W"},
+        },
+        {
+            "id": "cpu-005",
+            "name": "Intel Core i9-14900K",
+            "brand": "Intel",
+            "category": "cpu",
+            "price_inr": 52000,
+            "tiers": ["workstation", "content_creation", "gaming"],
+            "specs": {"cores": 24, "threads": 32, "base_clock": "3.2 GHz", "tdp": "125W"},
+        },
+        {
+            "id": "cpu-006",
+            "name": "AMD Ryzen 9 7950X",
+            "brand": "AMD",
+            "category": "cpu",
+            "price_inr": 55000,
+            "tiers": ["workstation", "content_creation"],
+            "specs": {"cores": 16, "threads": 32, "base_clock": "4.5 GHz", "tdp": "170W"},
+        },
+    ],
+
+    "gpu": [
+        {
+            "id": "gpu-001",
+            "name": "Intel Arc A380",
+            "brand": "Intel",
+            "category": "gpu",
+            "price_inr": 11000,
+            "tiers": ["office"],
+            "specs": {"vram": "6 GB", "memory_type": "GDDR6", "tdp": "75W"},
+        },
+        {
+            "id": "gpu-002",
+            "name": "NVIDIA GeForce RTX 4060",
+            "brand": "NVIDIA",
+            "category": "gpu",
+            "price_inr": 27000,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"vram": "8 GB", "memory_type": "GDDR6", "tdp": "115W"},
+        },
+        {
+            "id": "gpu-003",
+            "name": "NVIDIA GeForce RTX 4070",
+            "brand": "NVIDIA",
+            "category": "gpu",
+            "price_inr": 48000,
+            "tiers": ["gaming", "content_creation", "workstation"],
+            "specs": {"vram": "12 GB", "memory_type": "GDDR6X", "tdp": "200W"},
+        },
+        {
+            "id": "gpu-004",
+            "name": "NVIDIA GeForce RTX 4080 Super",
+            "brand": "NVIDIA",
+            "category": "gpu",
+            "price_inr": 85000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"vram": "16 GB", "memory_type": "GDDR6X", "tdp": "320W"},
+        },
+        {
+            "id": "gpu-005",
+            "name": "NVIDIA RTX 4090",
+            "brand": "NVIDIA",
+            "category": "gpu",
+            "price_inr": 165000,
+            "tiers": ["workstation", "content_creation", "gaming"],
+            "specs": {"vram": "24 GB", "memory_type": "GDDR6X", "tdp": "450W"},
+        },
+    ],
+
+    "ram": [
+        {
+            "id": "ram-001",
+            "name": "Corsair Vengeance 8 GB DDR4",
+            "brand": "Corsair",
+            "category": "ram",
+            "price_inr": 2200,
+            "tiers": ["office"],
+            "specs": {"capacity": "8 GB", "type": "DDR4", "speed": "3200 MHz"},
+        },
+        {
+            "id": "ram-002",
+            "name": "G.Skill Ripjaws V 16 GB DDR4",
+            "brand": "G.Skill",
+            "category": "ram",
+            "price_inr": 3800,
+            "tiers": ["office", "gaming"],
+            "specs": {"capacity": "16 GB (2×8)", "type": "DDR4", "speed": "3200 MHz"},
+        },
+        {
+            "id": "ram-003",
+            "name": "Corsair Vengeance 16 GB DDR5",
+            "brand": "Corsair",
+            "category": "ram",
+            "price_inr": 5500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"capacity": "16 GB (2×8)", "type": "DDR5", "speed": "5600 MHz"},
+        },
+        {
+            "id": "ram-004",
+            "name": "G.Skill Trident Z5 32 GB DDR5",
+            "brand": "G.Skill",
+            "category": "ram",
+            "price_inr": 11000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"capacity": "32 GB (2×16)", "type": "DDR5", "speed": "6000 MHz"},
+        },
+        {
+            "id": "ram-005",
+            "name": "Corsair Dominator 64 GB DDR5",
+            "brand": "Corsair",
+            "category": "ram",
+            "price_inr": 22000,
+            "tiers": ["workstation", "content_creation"],
+            "specs": {"capacity": "64 GB (2×32)", "type": "DDR5", "speed": "5600 MHz"},
+        },
+    ],
+
+    "storage": [
+        {
+            "id": "sto-001",
+            "name": "Kingston A400 240 GB SSD",
+            "brand": "Kingston",
+            "category": "storage",
+            "price_inr": 1800,
+            "tiers": ["office"],
+            "specs": {"capacity": "240 GB", "type": "SATA SSD", "read_speed": "500 MB/s"},
+        },
+        {
+            "id": "sto-002",
+            "name": "Samsung 870 EVO 500 GB",
+            "brand": "Samsung",
+            "category": "storage",
+            "price_inr": 3500,
+            "tiers": ["office", "gaming"],
+            "specs": {"capacity": "500 GB", "type": "SATA SSD", "read_speed": "560 MB/s"},
+        },
+        {
+            "id": "sto-003",
+            "name": "Samsung 980 Pro 1 TB NVMe",
+            "brand": "Samsung",
+            "category": "storage",
+            "price_inr": 7500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"capacity": "1 TB", "type": "NVMe M.2", "read_speed": "7000 MB/s"},
+        },
+        {
+            "id": "sto-004",
+            "name": "WD Black SN850X 2 TB NVMe",
+            "brand": "Western Digital",
+            "category": "storage",
+            "price_inr": 14000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"capacity": "2 TB", "type": "NVMe M.2", "read_speed": "7300 MB/s"},
+        },
+    ],
+
+    "motherboard": [
+        {
+            "id": "mb-001",
+            "name": "Gigabyte B660M DS3H",
+            "brand": "Gigabyte",
+            "category": "motherboard",
+            "price_inr": 8500,
+            "tiers": ["office"],
+            "specs": {"socket": "LGA 1700", "form_factor": "Micro-ATX", "chipset": "B660"},
+        },
+        {
+            "id": "mb-002",
+            "name": "MSI B760 Gaming Plus WiFi",
+            "brand": "MSI",
+            "category": "motherboard",
+            "price_inr": 14500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"socket": "LGA 1700", "form_factor": "ATX", "chipset": "B760"},
+        },
+        {
+            "id": "mb-003",
+            "name": "ASUS ROG Strix B650E-F",
+            "brand": "ASUS",
+            "category": "motherboard",
+            "price_inr": 24000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"socket": "AM5", "form_factor": "ATX", "chipset": "B650E"},
+        },
+        {
+            "id": "mb-004",
+            "name": "MSI MEG X670E ACE",
+            "brand": "MSI",
+            "category": "motherboard",
+            "price_inr": 45000,
+            "tiers": ["workstation"],
+            "specs": {"socket": "AM5", "form_factor": "E-ATX", "chipset": "X670E"},
+        },
+    ],
+
+    "psu": [
+        {
+            "id": "psu-001",
+            "name": "Corsair CV450 450W",
+            "brand": "Corsair",
+            "category": "psu",
+            "price_inr": 3200,
+            "tiers": ["office"],
+            "specs": {"wattage": "450W", "efficiency": "80+ Bronze", "modular": False},
+        },
+        {
+            "id": "psu-002",
+            "name": "Corsair RM650 650W",
+            "brand": "Corsair",
+            "category": "psu",
+            "price_inr": 6500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"wattage": "650W", "efficiency": "80+ Gold", "modular": True},
+        },
+        {
+            "id": "psu-003",
+            "name": "Corsair RM850x 850W",
+            "brand": "Corsair",
+            "category": "psu",
+            "price_inr": 10500,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"wattage": "850W", "efficiency": "80+ Gold", "modular": True},
+        },
+        {
+            "id": "psu-004",
+            "name": "Corsair HX1200 1200W",
+            "brand": "Corsair",
+            "category": "psu",
+            "price_inr": 18000,
+            "tiers": ["workstation"],
+            "specs": {"wattage": "1200W", "efficiency": "80+ Platinum", "modular": True},
+        },
+    ],
+
+    "case": [
+        {
+            "id": "case-001",
+            "name": "Ant Esports ICE-112",
+            "brand": "Ant Esports",
+            "category": "case",
+            "price_inr": 2500,
+            "tiers": ["office"],
+            "specs": {"form_factor": "Micro-ATX", "fans_included": 1, "tempered_glass": False},
+        },
+        {
+            "id": "case-002",
+            "name": "Corsair 4000D Airflow",
+            "brand": "Corsair",
+            "category": "case",
+            "price_inr": 7500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"form_factor": "ATX", "fans_included": 2, "tempered_glass": True},
+        },
+        {
+            "id": "case-003",
+            "name": "Lian Li O11 Dynamic EVO",
+            "brand": "Lian Li",
+            "category": "case",
+            "price_inr": 13000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"form_factor": "ATX", "fans_included": 0, "tempered_glass": True},
+        },
+        {
+            "id": "case-004",
+            "name": "Corsair 5000T RGB",
+            "brand": "Corsair",
+            "category": "case",
+            "price_inr": 28000,
+            "tiers": ["workstation"],
+            "specs": {"form_factor": "Full Tower", "fans_included": 4, "tempered_glass": True},
+        },
+    ],
+
+    "cooler": [
+        {
+            "id": "cool-001",
+            "name": "Deepcool AK400",
+            "brand": "Deepcool",
+            "category": "cooler",
+            "price_inr": 1800,
+            "tiers": ["office"],
+            "specs": {"type": "Air", "fan_size": "120mm", "tdp_support": "220W"},
+        },
+        {
+            "id": "cool-002",
+            "name": "Noctua NH-U12S",
+            "brand": "Noctua",
+            "category": "cooler",
+            "price_inr": 5500,
+            "tiers": ["gaming", "content_creation"],
+            "specs": {"type": "Air", "fan_size": "120mm", "tdp_support": "250W"},
+        },
+        {
+            "id": "cool-003",
+            "name": "NZXT Kraken X63 280mm",
+            "brand": "NZXT",
+            "category": "cooler",
+            "price_inr": 12000,
+            "tiers": ["gaming", "workstation", "content_creation"],
+            "specs": {"type": "AIO Liquid", "radiator": "280mm", "tdp_support": "300W+"},
+        },
+        {
+            "id": "cool-004",
+            "name": "Corsair iCUE H150i Elite 360mm",
+            "brand": "Corsair",
+            "category": "cooler",
+            "price_inr": 16000,
+            "tiers": ["workstation"],
+            "specs": {"type": "AIO Liquid", "radiator": "360mm", "tdp_support": "350W+"},
+        },
+    ],
+}
+
+
+def get_all_components() -> dict:
+    """Return the full component database."""
+    return COMPONENTS_DB
+
+
+def get_components_for_category(category: str) -> list:
+    """Return all components in a given category."""
+    return COMPONENTS_DB.get(category, [])
