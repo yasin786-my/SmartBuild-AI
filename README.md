@@ -18,15 +18,6 @@
 </p>
 
 ---
-
-## 📸 Screenshots
-
-| Dashboard | Build Summary | Login |
-|-----------|--------------|-------|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Build](docs/screenshots/build-summary.png) | ![Login](docs/screenshots/login.png) |
-
----
-
 ## 🏗️ Architecture
 
 ```
